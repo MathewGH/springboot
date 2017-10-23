@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CityMapper">
+
+<resultMap id="ssoLog" type="com.example.demo.domain.SsoLog">
+		<result property="tokenid" column="tokenid" />
+		<result property="requestSys" column="request_sys" />
+		<result property="exceptionTime" column="exception_tm" />
+		<result property="errorMsg" column="error_Msg" />
+		<result property="userid" column="userid" />
+</resultMap>
+
+    <select id="selectLogByTokenId" resultType="ssoLog">
+        select * from sso_log where tokenid = #{tokenid}
+    </select>
+</mapper>
